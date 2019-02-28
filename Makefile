@@ -8,15 +8,14 @@
 ASM 	=	nasm
 DSRC	=	src/
 
-SRC		=	$(DSRC)test.asm		\
+SRC		=	$(DSRC)strlen.asm		\
 
-ASFLAGS =	-f elf64 -shared
+ASFLAGS =	-felf64 -shared
 OBJ 	=	$(SRC:.asm=.o)
 NAME	=	libasm.so
 
 all: $(OBJ)
-	$(CC) -shared -f elf64
-	ld -o $(NAME) $(OBJ) $(LDFLAGS) -nostdlib
+	ld -o $(NAME) $(OBJ) -nostdlib
 
 %.o:%.asm
 	$(ASM) $(ASFLAGS) $< -o $@
