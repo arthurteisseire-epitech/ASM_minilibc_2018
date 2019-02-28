@@ -6,9 +6,12 @@
 ##
 
 ASM 	=	nasm
+DTESTS	=	tests/
 DSRC	=	src/
 
 SRC		=	$(DSRC)strlen.asm		\
+
+SRC_UT	=	$(DTESTS)strlen_test.c	\
 
 ASFLAGS =	-felf64 -shared
 OBJ 	=	$(SRC:.asm=.o)
@@ -28,7 +31,8 @@ fclean: clean
 
 re:	fclean all
 
-test_run: re
-	make test_run -C $(DTESTS)
+tests_run:
+	gcc -o units $(SRC_UT) -lcriterion
+	./units
 
 .PHONY: all clean fclean re test_run

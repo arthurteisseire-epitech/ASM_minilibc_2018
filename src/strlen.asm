@@ -1,5 +1,8 @@
-bits 64                             ; 64-bit mode
-section .text                       ; Code section
-global  main                        ; Export 'main'
-main:
+bits 64
+
+
+section .text
+
+my_strlen:
     push rbp
+    leave
