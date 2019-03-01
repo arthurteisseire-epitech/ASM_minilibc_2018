@@ -10,5 +10,5 @@
 
 Test(my_strlen, basic)
 {
-    cr_assert_eq(my_strlen(), 1);
+    cr_assert_eq(my_strlen(1), 1);
 }
