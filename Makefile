@@ -33,7 +33,7 @@ fclean: clean
 re:	fclean all
 
 tests_run: all
-	gcc -o units $(SRC_UT) $(OBJ) -lcriterion
+	gcc -o units $(SRC_UT) -lcriterion -ldl
 	./units
 
 .PHONY: all clean fclean re test_run

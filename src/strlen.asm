@@ -1,12 +1,12 @@
 bits 64
 
 
-global my_strlen:function
+global strlen:function
 
 
 section .text
 
-my_strlen:
+strlen:
     xor rcx, rcx
 begin:
     mov dl, [rdi + rcx]

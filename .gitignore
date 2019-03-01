@@ -2,3 +2,5 @@
 *.o
 .idea
 units
+CMakeLists.txt
+cmake-build-debug
