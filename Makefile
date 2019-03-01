@@ -14,11 +14,12 @@ SRC		=	$(DSRC)strlen.asm		\
 SRC_UT	=	$(DTESTS)strlen_test.c	\
 
 ASFLAGS =	-felf64 -shared
+LDFLAGS =   --shared -nostdlib
 OBJ 	=	$(SRC:.asm=.o)
 NAME	=	libasm.so
 
 all: $(OBJ)
-	ld --shared -o $(NAME) $(OBJ) -nostdlib
+	ld -o $(NAME) $(OBJ) $(LDFLAGS)
 
 %.o:%.asm
 	$(ASM) $(ASFLAGS) $< -o $@
