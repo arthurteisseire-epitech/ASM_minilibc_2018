@@ -12,13 +12,12 @@ my_strlen:
 
     xor rcx, rcx
 begin:
-    mov dl, [rdi]
+    mov dl, [rdi + rcx]
     cmp dl, 0
     je return
     inc rcx
-    inc rdi
-    mov rax, rcx
     jmp begin
 return:
+    mov rax, rcx
     leave
     ret
