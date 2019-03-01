@@ -8,6 +8,6 @@
 #ifndef LIB_H
 #define LIB_H
 
-int my_strlen(int);
+int my_strlen(const char *);
 
 #endif
