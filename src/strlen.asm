@@ -1,8 +1,11 @@
 bits 64
 
 
+global strlen:function
+
+
 section .text
 
-my_strlen:
+strlen:
     push rbp
     leave

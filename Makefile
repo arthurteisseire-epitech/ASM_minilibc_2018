@@ -18,7 +18,7 @@ OBJ 	=	$(SRC:.asm=.o)
 NAME	=	libasm.so
 
 all: $(OBJ)
-	ld -o $(NAME) $(OBJ) -nostdlib
+	ld --shared -o $(NAME) $(OBJ) -nostdlib
 
 %.o:%.asm
 	$(ASM) $(ASFLAGS) $< -o $@
