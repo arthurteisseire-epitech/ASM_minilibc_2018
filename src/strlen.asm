@@ -1,11 +1,13 @@
 bits 64
 
 
-global strlen:function
+global my_strlen:function
 
 
 section .text
 
-strlen:
+my_strlen:
     push rbp
-    leave
+    pop rbp
+    mov eax, 1
+    ret
