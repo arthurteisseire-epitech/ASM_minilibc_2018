@@ -7,6 +7,9 @@ global my_strlen:function
 section .text
 
 my_strlen:
+    push rbp
+    mov rbp, rsp    ; Stack frame setup
+
     xor rcx, rcx
 begin:
     mov dl, [rdi]
@@ -17,4 +20,5 @@ begin:
     mov rax, rcx
     jmp begin
 return:
+    leave
     ret
