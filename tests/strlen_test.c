@@ -21,15 +21,20 @@ static size_t load_symbol(const char *s)
         fprintf(stderr, "%s\n", dlerror());
         exit(EXIT_FAILURE);
     }
-    my_strlen = (size_t (*)(const char *)) dlsym(handle, "strlen");
+    my_strlen = dlsym(handle, "strlen");
     return (0);
+}
+
+static void test_strlen(const char *s)
+{
+    cr_assert_eq(load_symbol(s), strlen(s));
 }
 
 Test(my_strlen, basic)
 {
     load_symbol("");
-    cr_assert_eq(load_symbol(""), strlen(""));
-    cr_assert_eq(load_symbol("a"), strlen("a"));
-    cr_assert_eq(load_symbol("abcd"), 4);
-    cr_assert_eq(load_symbol("abcdefghijklmnopqrstuvwxyz\n"), 27);
+    test_strlen("");
+    test_strlen("a");
+    test_strlen("abcd");
+    test_strlen("abfdjsajfdsahfpoiewhvds;ajf;a");
 }
