@@ -9,8 +9,8 @@ section .text
 my_strlen:
     xor rcx, rcx
 begin:
-    mov bl, [rdi]
-    cmp bl, 0
+    mov dl, [rdi]
+    cmp dl, 0
     je return
     inc rcx
     inc rdi
