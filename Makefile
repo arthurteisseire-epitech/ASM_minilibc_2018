@@ -11,10 +11,12 @@ DSRC	=	src/
 
 SRC		=	$(DSRC)strlen.asm		\
 			$(DSRC)strchr.asm		\
+			$(DSRC)memset.asm		\
 
 SRC_UT	=	$(DTESTS)load_sym.c		\
 			$(DTESTS)strlen_test.c	\
 			$(DTESTS)strchr_test.c	\
+			$(DTESTS)memset_test.c	\
 
 ASFLAGS =	-felf64 -shared
 LDFLAGS =   --shared -nostdlib
