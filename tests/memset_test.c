@@ -18,19 +18,15 @@ static size_t my_memset(void *s, int c, size_t n)
     return (sym(s, c, n));
 }
 
-static void test_memset(int c, size_t n)
+static void test_return_value(int c, size_t n)
 {
     char s[n];
-//    char my[n];
-//    char other[n];
 
     cr_assert_eq((size_t)my_memset(s, c, n), (size_t)memset(s, c, n));
-//    my_memset(my, c, n);
-//    memset(other, c, n);
-//    cr_assert_str_eq(my, other);
 }
 
-Test(my_memset, basic)
+Test(my_memset, return_value)
 {
-    test_memset(0, 0);
+    test_return_value(0, 0);
+    test_return_value('a', 2);
 }
