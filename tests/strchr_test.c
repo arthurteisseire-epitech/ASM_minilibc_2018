@@ -24,11 +24,16 @@ static void test_strchr(const char *s, char c)
     cr_assert_eq(my_strchr(s, c), strchr(s, c));
 }
 
-Test(my_strchr, basic)
+Test(my_strchr, found)
 {
     test_strchr("", 0);
     test_strchr("a", 0);
     test_strchr("a", 'a');
     test_strchr("abcd", 'd');
     test_strchr("abcd", 'c');
+}
+
+Test(my_strchr, not_found)
+{
+    test_strchr("a", 'b');
 }
