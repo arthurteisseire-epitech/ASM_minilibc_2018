@@ -35,6 +35,7 @@ Test(my_memcpy, cmp)
     test_memcpy("", 0);
     test_memcpy("", 1);
     test_memcpy("a", 0);
+    test_memcpy("a", 1);
 }
 
 Test(my_memcpy, return_value)
