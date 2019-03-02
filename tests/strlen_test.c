@@ -8,7 +8,7 @@
 #include <criterion/criterion.h>
 #include <dlfcn.h>
 #include <stdio.h>
-#include "lib.h"
+#include "load_sym.h"
 
 static size_t my_strlen(const char *s)
 {
@@ -16,7 +16,7 @@ static size_t my_strlen(const char *s)
 
     if (sym)
         return (sym(s));
-    sym = dlsym(open_asm(), "strlen");
+    sym = load_sym("strlen");
     return (sym(s));
 }
 

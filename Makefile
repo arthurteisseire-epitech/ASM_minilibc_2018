@@ -12,7 +12,7 @@ DSRC	=	src/
 SRC		=	$(DSRC)strlen.asm		\
 			$(DSRC)strchr.asm		\
 
-SRC_UT	=	$(DTESTS)open_asm.c		\
+SRC_UT	=	$(DTESTS)load_sym.c		\
 			$(DTESTS)strlen_test.c	\
 			$(DTESTS)strchr_test.c	\
 

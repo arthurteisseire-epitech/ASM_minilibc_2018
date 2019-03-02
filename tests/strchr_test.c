@@ -7,7 +7,7 @@
 
 #include <criterion/criterion.h>
 #include <dlfcn.h>
-#include "lib.h"
+#include "load_sym.h"
 
 static char *my_strchr(const char *s, char c)
 {
@@ -15,7 +15,7 @@ static char *my_strchr(const char *s, char c)
 
     if (sym)
         return (sym(s, c));
-    sym = dlsym(open_asm(), "strchr");
+    sym = load_sym("strchr");
     return (sym(s, c));
 }
 

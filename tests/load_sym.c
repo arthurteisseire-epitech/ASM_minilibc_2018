@@ -9,7 +9,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-void *open_asm()
+static void *open_asm()
 {
     void *handle = dlopen("./libasm.so", RTLD_LAZY);
 
@@ -19,3 +19,9 @@ void *open_asm()
     }
     return (handle);
 }
+
+void *load_sym(const char *sym)
+{
+    return (dlsym(open_asm(), sym));
+}
+
