@@ -7,9 +7,13 @@ global memset:function
 section .text
 
 memset:
-    cmp rdx, 0
+    xor rcx, rcx
+begin:
+    cmp rdx, rcx
     je stop
-    mov [rdi], sil
+    mov [rdi + rcx], sil
+    inc rcx
+    jmp begin
 stop:
     mov rax, rdi
     ret

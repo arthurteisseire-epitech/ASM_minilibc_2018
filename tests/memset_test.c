@@ -34,6 +34,8 @@ Test(my_memset, cmp)
 {
     test_memset('a', 0);
     test_memset('a', 1);
+    test_memset('a', 2);
+    test_memset('x', 100);
 }
 
 static void test_return_value(int c, size_t n)
