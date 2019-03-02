@@ -11,7 +11,8 @@ DSRC	=	src/
 
 SRC		=	$(DSRC)strlen.asm		\
 
-SRC_UT	=	$(DTESTS)strlen_test.c	\
+SRC_UT	=	$(DTESTS)open_asm.c		\
+			$(DTESTS)strlen_test.c	\
 
 ASFLAGS =	-felf64 -shared
 LDFLAGS =   --shared -nostdlib

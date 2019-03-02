@@ -1,13 +1,13 @@
 /*
 ** EPITECH PROJECT, 2018
-** ASM_minilibc_2018
+** PSU_2018_nmobjdump
 ** File description:
 ** lib.h
 */
 
-#ifndef LIB_H
-#define LIB_H
+#ifndef PSU_2018_NMOBJDUMP_LIB_H
+#define PSU_2018_NMOBJDUMP_LIB_H
 
-size_t my_strlen(const char *);
+void *open_asm();
 
 #endif

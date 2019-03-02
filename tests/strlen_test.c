@@ -10,29 +10,24 @@
 #include <stdio.h>
 #include "lib.h"
 
-static size_t load_symbol(const char *s)
+static size_t my_strlen(const char *s)
 {
-    void *handle = dlopen("./libasm.so", RTLD_LAZY);
-    static size_t (*my_strlen)(const char *) = NULL;
+    static size_t (*sym)(const char *) = NULL;
+    void *handle;
 
-    if (my_strlen != NULL)
-        return (my_strlen(s));
-    if (!handle) {
-        fprintf(stderr, "%s\n", dlerror());
-        exit(EXIT_FAILURE);
-    }
-    my_strlen = dlsym(handle, "strlen");
-    return (0);
+    if (sym)
+        return (sym(s));
+    sym = dlsym(open_asm(), "strlen");
+    return (sym(s));
 }
 
 static void test_strlen(const char *s)
 {
-    cr_assert_eq(load_symbol(s), strlen(s));
+    cr_assert_eq(my_strlen(s), strlen(s));
 }
 
 Test(my_strlen, basic)
 {
-    load_symbol("");
     test_strlen("");
     test_strlen("a");
     test_strlen("abcd");
