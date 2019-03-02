@@ -13,7 +13,6 @@
 static size_t my_strlen(const char *s)
 {
     static size_t (*sym)(const char *) = NULL;
-    void *handle;
 
     if (sym)
         return (sym(s));
