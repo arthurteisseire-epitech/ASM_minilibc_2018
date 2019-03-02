@@ -27,4 +27,6 @@ static void test_strchr(const char *s, char c)
 Test(my_strchr, basic)
 {
     test_strchr("", 0);
+    test_strchr("a", 0);
+    test_strchr("a", 'a');
 }
