@@ -30,6 +30,13 @@ static void test_memcpy(void *src, size_t n)
     free(other);
 }
 
+Test(my_memcpy, cmp)
+{
+    test_memcpy("", 0);
+    test_memcpy("", 1);
+    test_memcpy("a", 0);
+}
+
 Test(my_memcpy, return_value)
 {
     char s[] = "";
