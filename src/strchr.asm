@@ -11,12 +11,12 @@ strchr:
 begin:
     mov dl, [rdi + rcx]
     cmp dl, sil
-    je return
+    je found
     cmp dl, 0
     je not_found
     inc rcx
     jmp begin
-return:
+found:
     mov rax, rdi
     add rax, rcx
     ret

@@ -36,4 +36,5 @@ Test(my_strchr, found)
 Test(my_strchr, not_found)
 {
     test_strchr("a", 'b');
+    test_strchr("abcd", 'x');
 }
