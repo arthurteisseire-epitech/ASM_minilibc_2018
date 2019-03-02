@@ -32,4 +32,3 @@ void *load_sym(const char *sym_name)
     }
     return (dlsym(open_asm(), sym_name));
 }
-
