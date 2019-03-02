@@ -31,4 +31,5 @@ Test(my_strcmp, basic)
 {
     test_strcmp("", "");
     test_strcmp("a", "");
+    test_strcmp("a", "b");
 }

@@ -7,9 +7,16 @@ global strcmp:function
 section .text
 
 strcmp:
+    xor eax, eax
     mov r9b, [rsi]
-    xor r10, r10
-    mov r10b, [rdi]
-    sub r10b, [rsi]
-    movzx rax, r10b
+    cmp [rdi], r9b
+    jl negative
+    mov al, [rdi]
+    sub al, [rsi]
+    ret
+negative:
+    mov al, [rsi]
+    sub al, [rdi]
+    xor eax, 0xffffffff
+    inc eax
     ret
