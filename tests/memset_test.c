@@ -20,17 +20,20 @@ static size_t my_memset(void *s, int c, size_t n)
 
 static void test_memset(int c, size_t n)
 {
-    char my[n];
-    char other[n];
+    char *my = calloc(n, sizeof(char));
+    char *other = calloc(n, sizeof(char));
 
     my_memset(my, c, n);
     memset(other, c, n);
     cr_assert_str_eq(my, other);
+    free(my);
+    free(other);
 }
 
 Test(my_memset, cmp)
 {
     test_memset('a', 0);
+    test_memset('a', 1);
 }
 
 static void test_return_value(int c, size_t n)
