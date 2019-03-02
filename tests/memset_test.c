@@ -2,7 +2,7 @@
 ** EPITECH PROJECT, 2018
 ** ASM_minilibc_2018
 ** File description:
-** memset.c
+** memset_test.c
 */
 
 #include <criterion/criterion.h>
