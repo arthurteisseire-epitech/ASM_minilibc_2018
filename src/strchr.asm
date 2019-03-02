@@ -9,10 +9,10 @@ section .text
 strchr:
     xor rcx, rcx
 begin:
-    mov dl, [rdi + rcx]
-    cmp dl, sil
+    mov r9b, [rdi + rcx]
+    cmp r9b, sil
     je found
-    cmp dl, 0
+    cmp r9b, 0
     je not_found
     inc rcx
     jmp begin
