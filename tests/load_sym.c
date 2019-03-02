@@ -20,8 +20,16 @@ static void *open_asm()
     return (handle);
 }
 
-void *load_sym(const char *sym)
+void *load_sym(const char *sym_name)
 {
-    return (dlsym(open_asm(), sym));
+    void *sym = dlsym(open_asm(), sym_name);
+    const char *format = "\n-----\n\n";
+
+    if (sym == NULL) {
+        fprintf(stderr, "%s%s symbol doesn't exists, missing in Makefile?\n%s",
+            format, sym_name, format);
+        exit(EXIT_FAILURE);
+    }
+    return (dlsym(open_asm(), sym_name));
 }
 
