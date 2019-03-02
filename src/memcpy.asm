@@ -7,10 +7,14 @@ global memcpy:function
 section .text
 
 memcpy:
-    cmp rdx, 0
-    je return
-    mov dl, [rsi]
-    mov [rdi], dl
-return:
+    xor rcx, rcx
+begin:
+    cmp rdx, rcx
+    je stop
+    mov r9b, [rsi + rcx]
+    mov [rdi + rcx], r9b
+    inc rcx
+    jmp begin
+stop:
     mov rax, rdi
     ret

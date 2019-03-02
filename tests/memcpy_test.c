@@ -8,9 +8,9 @@
 #include <criterion/criterion.h>
 #include "load_sym.h"
 
-static size_t my_memcpy(void *dest, void *src, size_t n)
+static size_t my_memcpy(void *dest, const void *src, size_t n)
 {
-    static size_t (*sym)(void *, void *, size_t) = NULL;
+    static size_t (*sym)(void *, const void *, size_t) = NULL;
 
     if (sym)
         return (sym(dest, src, n));
@@ -18,10 +18,10 @@ static size_t my_memcpy(void *dest, void *src, size_t n)
     return (sym(dest, src, n));
 }
 
-static void test_memcpy(void *src, size_t n)
+static void test_memcpy(const void *src, size_t n)
 {
-    char *my = calloc(n, sizeof(char));
-    char *other = calloc(n, sizeof(char));
+    void *my = calloc(n + 1, sizeof(char));
+    void *other = calloc(n + 1, sizeof(char));
 
     my_memcpy(my, src, n);
     memcpy(other, src, n);
@@ -33,9 +33,9 @@ static void test_memcpy(void *src, size_t n)
 Test(my_memcpy, cmp)
 {
     test_memcpy("", 0);
-    test_memcpy("", 1);
-    test_memcpy("a", 0);
-    test_memcpy("a", 1);
+    test_memcpy("aaaa", 3);
+    test_memcpy("aaaa", 4);
+    test_memcpy("abcdefg", 5);
 }
 
 Test(my_memcpy, return_value)
