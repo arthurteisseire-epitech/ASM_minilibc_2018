@@ -29,4 +29,6 @@ Test(my_strchr, basic)
     test_strchr("", 0);
     test_strchr("a", 0);
     test_strchr("a", 'a');
+    test_strchr("abcd", 'd');
+    test_strchr("abcd", 'c');
 }
