@@ -50,4 +50,7 @@ Test(my_strstr, found_one_char)
 Test(my_strstr, found_string)
 {
     test_strstr("b bc", "bc");
+    test_strstr("b bc toto", "bc ");
+    test_strstr("yyolo", "yolo");
+    test_strstr("totota", "tota");
 }
