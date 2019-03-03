@@ -16,15 +16,17 @@ SRC		=	$(DSRC)strlen.asm		\
 			$(DSRC)strcmp.asm		\
 			$(DSRC)memmove.asm		\
 			$(DSRC)strncmp.asm		\
+			$(DSRC)strcasecmp.asm	\
 
-SRC_UT	=	$(DTESTS)load_sym.c		\
-			$(DTESTS)strlen_test.c	\
-			$(DTESTS)strchr_test.c	\
-			$(DTESTS)memset_test.c	\
-			$(DTESTS)memcpy_test.c	\
-			$(DTESTS)strcmp_test.c	\
-			$(DTESTS)memmove_test.c	\
-			$(DTESTS)strncmp_test.c	\
+SRC_UT	=	$(DTESTS)load_sym.c			\
+			$(DTESTS)strlen_test.c		\
+			$(DTESTS)strchr_test.c		\
+			$(DTESTS)memset_test.c		\
+			$(DTESTS)memcpy_test.c		\
+			$(DTESTS)strcmp_test.c		\
+			$(DTESTS)memmove_test.c		\
+			$(DTESTS)strncmp_test.c		\
+			$(DTESTS)strcasecmp_test.c	\
 
 ASFLAGS =	-felf64 -shared
 LDFLAGS =   --shared -nostdlib
