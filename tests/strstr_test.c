@@ -46,3 +46,8 @@ Test(my_strstr, found_one_char)
     test_strstr("ab", "b");
     test_strstr("abc", "b");
 }
+
+Test(my_strstr, found_string)
+{
+    test_strstr("b bc", "bc");
+}
