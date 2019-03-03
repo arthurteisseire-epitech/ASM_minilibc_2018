@@ -9,10 +9,13 @@ section .text
 rindex:
     xor rcx, rcx
     xor rax, rax
+    xor r8, r8
 begin:
-    mov r9b, [rdi + rcx]
+    mov r8, rdi
+    add r8, rcx
+    mov r9b, [r8]
     cmp r9b, sil
-    cmove rax, rdi
+    cmove rax, r8
     cmp r9b, 0
     je return
     inc rcx

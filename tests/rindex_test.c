@@ -21,10 +21,14 @@ static char *my_rindex(const char *s, char c)
 
 static void test_rindex(const char *s, char c)
 {
-    cr_assert_eq(my_rindex(s, c), rindex(s, c));
+    const char *mine = my_rindex(s, c);
+    const char *other = rindex(s, c);
+
+    cr_assert_eq(mine, other, "actual: '%s', expected '%s'\n", mine, other);
 }
 
 Test(my_rindex, found)
 {
     test_rindex("", 0);
+    test_rindex("abc", 'c');
 }
