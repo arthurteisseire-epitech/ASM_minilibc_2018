@@ -53,4 +53,7 @@ Test(my_strpbrk, found_string)
     test_strpbrk("b bc toto", "bc ");
     test_strpbrk("yyolo", "yolo");
     test_strpbrk("totota", "tota");
+    test_strpbrk("o", "lo");
+    test_strpbrk("hehlo", "lo");
+    test_strpbrk("fdsadsf", "iuosj");
 }

@@ -17,8 +17,7 @@ loop:
 
     cmp r9b, 0
     je not_found
-    cmp r9b, [rsi]
-    je strcmp
+    jmp strcmp
 
 inc_rcx:
     inc rcx
@@ -31,9 +30,7 @@ loopcmp:
     mov r10b, [rsi + r11]
 
     cmp r10b, 0
-    je found
-    cmp r9b, 0
-    je not_found
+    je inc_rcx
     cmp r10b, r9b
     je found
     inc r11
