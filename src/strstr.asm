@@ -7,9 +7,6 @@ global strstr:function
 section .text
 
 
-; '' , 'a'
-; 0 , a
-
 strstr:
     mov rax, rdi
     xor rcx, rcx
