@@ -40,7 +40,9 @@ Test(my_strstr, not_found)
     test_strstr("a", "");
 }
 
-Test(my_strstr, found)
+Test(my_strstr, found_one_char)
 {
     test_strstr("a", "a");
+    test_strstr("ab", "b");
+    test_strstr("abc", "b");
 }
