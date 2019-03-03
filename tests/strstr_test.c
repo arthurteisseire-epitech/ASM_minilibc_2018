@@ -39,3 +39,8 @@ Test(my_strstr, not_found)
     test_strstr("abcd", "f");
     test_strstr("a", "");
 }
+
+Test(my_strstr, found)
+{
+    test_strstr("a", "a");
+}
