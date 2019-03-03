@@ -15,6 +15,7 @@ SRC		=	$(DSRC)strlen.asm		\
 			$(DSRC)memcpy.asm		\
 			$(DSRC)strcmp.asm		\
 			$(DSRC)memmove.asm		\
+			$(DSRC)strncmp.asm		\
 
 SRC_UT	=	$(DTESTS)load_sym.c		\
 			$(DTESTS)strlen_test.c	\
@@ -23,6 +24,7 @@ SRC_UT	=	$(DTESTS)load_sym.c		\
 			$(DTESTS)memcpy_test.c	\
 			$(DTESTS)strcmp_test.c	\
 			$(DTESTS)memmove_test.c	\
+			$(DTESTS)strncmp_test.c	\
 
 ASFLAGS =	-felf64 -shared
 LDFLAGS =   --shared -nostdlib
