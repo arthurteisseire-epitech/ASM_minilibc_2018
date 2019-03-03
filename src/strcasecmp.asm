@@ -9,28 +9,28 @@ section .text
 strcasecmp:
     xor eax, eax
     xor rcx, rcx
-    xor rdx, rdx
+    xor rcx, rcx
 begin:
-    mov dh, [rdi + rcx]
-    mov dl, [rsi + rcx]
+    mov r8b, [rdi + rcx]
+    mov r9b, [rsi + rcx]
     inc rcx
 
-    cmp dh, 0
+    cmp r8b, 0
     je return
-    cmp dl, 0
+    cmp r9b, 0
     je return
-    cmp dh, dl
+    cmp r8b, r9b
     je begin
 return:
-    cmp dh, dl
+    cmp r8b, r9b
     jg positive
 
-    mov al, dl
-    sub al, dh
+    mov al, r9b
+    sub al, r8b
     xor eax, 0xffffffff
     inc eax
     ret
 positive:
-    mov al, dh
-    sub al, dl
+    mov al, r8b
+    sub al, r9b
     ret

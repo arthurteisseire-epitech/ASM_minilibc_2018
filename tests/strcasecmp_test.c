@@ -27,7 +27,7 @@ static void test_strcasecmp(const char *s1, const char *s2)
     cr_expect_eq(mine, other, "actual: %d, expected: %d", mine, other);
 }
 
-Test(my_strcasecmp, basic)
+Test(my_strcasecmp, no_case)
 {
     test_strcasecmp("", "");
     test_strcasecmp("a", "");
@@ -35,4 +35,9 @@ Test(my_strcasecmp, basic)
     test_strcasecmp("abc", "abd");
     test_strcasecmp("abc", "ab");
     test_strcasecmp("", "abc");
+}
+
+Test(my_strcasecmp, with_case)
+{
+    test_strcasecmp("A", "a");
 }
