@@ -39,3 +39,10 @@ Test(my_strpbrk, not_found)
     test_strpbrk("abcd", "f");
     test_strpbrk("a", "");
 }
+
+Test(my_strpbrk, found_one_char)
+{
+    test_strpbrk("a", "a");
+    test_strpbrk("ab", "b");
+    test_strpbrk("abc", "b");
+}
