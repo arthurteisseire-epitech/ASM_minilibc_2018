@@ -30,8 +30,14 @@ static void test_rindex(const char *s, char c)
 Test(my_rindex, found)
 {
     test_rindex("", 0);
+    test_rindex("abcef", 0);
     test_rindex("abc", 'c');
     test_rindex("abcef", 'c');
-    test_rindex("abcef", 0);
+    test_rindex("abcef", 'e');
+}
+
+Test(my_rindex, not_found)
+{
     test_rindex("afsadfdsa", ';');
+    test_rindex("", ';');
 }
