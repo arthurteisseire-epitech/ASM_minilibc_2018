@@ -8,18 +8,15 @@ section .text
 
 rindex:
     xor rcx, rcx
+    xor rax, rax
 begin:
     mov r9b, [rdi + rcx]
     cmp r9b, sil
-    je found
+    cmove rax, rdi
     cmp r9b, 0
-    je not_found
+    je return
     inc rcx
     jmp begin
-found:
-    mov rax, rdi
-    add rax, rcx
-    ret
-not_found:
-    mov rax, 0
+
+return:
     ret
