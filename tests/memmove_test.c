@@ -32,5 +32,7 @@ static void test_memmove(const void *string, size_t n)
 
 Test(my_memmove, basic)
 {
-    test_memmove("00", 2);
+    test_memmove("00123", 2);
+    test_memmove("0123456789", 10);
+    test_memmove(";ldsakjfsa;ld", 12);
 }
