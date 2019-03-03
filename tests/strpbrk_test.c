@@ -35,4 +35,7 @@ static void test_strpbrk(const char *s1, const char *s2)
 Test(my_strpbrk, not_found)
 {
     test_strpbrk("", "");
+    test_strpbrk("", "a");
+    test_strpbrk("abcd", "f");
+    test_strpbrk("a", "");
 }
