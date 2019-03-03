@@ -18,6 +18,7 @@ SRC		=	$(DSRC)strlen.asm		\
 			$(DSRC)strncmp.asm		\
 			$(DSRC)strcasecmp.asm	\
 			$(DSRC)rindex.asm		\
+			$(DSRC)strstr.asm		\
 
 SRC_UT	=	$(DTESTS)load_sym.c			\
 			$(DTESTS)strlen_test.c		\
@@ -29,6 +30,7 @@ SRC_UT	=	$(DTESTS)load_sym.c			\
 			$(DTESTS)strncmp_test.c		\
 			$(DTESTS)strcasecmp_test.c	\
 			$(DTESTS)rindex_test.c		\
+			$(DTESTS)strstr_test.c		\
 
 ASFLAGS =	-felf64 -shared
 LDFLAGS =   --shared -nostdlib
