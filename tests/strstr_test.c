@@ -27,7 +27,9 @@ static void test_strstr(const char *s1, const char *s2)
     if (mine == NULL && other == NULL)
         cr_expect_eq(mine, other);
     else
-        cr_expect_str_eq(mine, other, "actual: '%s', expected: '%s'", mine, other);
+        cr_expect_str_eq(mine, other,
+        "('%s', '%s') -> actual: '%s', expected: '%s'",
+        s1, s2, mine, other);
 }
 
 Test(my_strstr, not_found)
@@ -35,4 +37,5 @@ Test(my_strstr, not_found)
     test_strstr("", "");
     test_strstr("", "a");
     test_strstr("abcd", "f");
+    test_strstr("a", "");
 }
