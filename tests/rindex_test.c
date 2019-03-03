@@ -31,4 +31,7 @@ Test(my_rindex, found)
 {
     test_rindex("", 0);
     test_rindex("abc", 'c');
+    test_rindex("abcef", 'c');
+    test_rindex("abcef", 0);
+    test_rindex("afsadfdsa", ';');
 }
