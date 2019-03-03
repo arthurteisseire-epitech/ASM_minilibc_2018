@@ -32,4 +32,26 @@ static void test_strcspn(const char *s1, const char *s2)
 Test(my_strcspn, not_found)
 {
     test_strcspn("", "");
+    test_strcspn("", "a");
+    test_strcspn("abcd", "f");
+    test_strcspn("a", "");
+}
+
+Test(my_strcspn, found_one_char)
+{
+    test_strcspn("a", "a");
+    test_strcspn("ab", "b");
+    test_strcspn("abc", "b");
+}
+
+Test(my_strcspn, found_string)
+{
+    test_strcspn("b bc", "bc");
+    test_strcspn("b bc toto", "bc ");
+    test_strcspn("yyolo", "yolo");
+    test_strcspn("totota", "tota");
+    test_strcspn("o", "lo");
+    test_strcspn("hehlo", "lo");
+    test_strcspn("fdsadsf", "iuosj");
+    test_strcspn("abcdef", "uiyptjlf");
 }
