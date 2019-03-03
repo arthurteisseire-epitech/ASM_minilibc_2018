@@ -40,4 +40,7 @@ Test(my_strncmp, n_sup)
 Test(my_strncmp, n_inf)
 {
     test_strncmp("abc", "abd", 2);
+    test_strncmp("a", "abd", 2);
+    test_strncmp("abbbb", "abbbb", 2);
+    test_strncmp("ac", "ab", 2);
 }
