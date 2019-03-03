@@ -30,6 +30,25 @@ static void test_memmove(const void *string, size_t n)
     cr_assert_str_eq(got, expected);
 }
 
+static void test_memcpy(const void *src, size_t n)
+{
+    void *my = calloc(n + 1, sizeof(char));
+    void *other = calloc(n + 1, sizeof(char));
+
+    my_memmove(my, src, n);
+    memcpy(other, src, n);
+    cr_assert_str_eq(my, other);
+    free(my);
+    free(other);
+}
+
+Test(my_memmove, memcpy)
+{
+    test_memcpy("", 0);
+    test_memcpy("aaaa", 3);
+    test_memcpy("aaaa", 4);
+    test_memcpy("abcdefg", 5);
+}
 Test(my_memmove, basic)
 {
     test_memmove("00123", 2);
