@@ -8,10 +8,10 @@ section .text
 
 strstr:
     xor rcx, rcx
-begin:
     mov r10b, [rsi]
     cmp r10b, 0
     je found
+begin:
     mov r9b, [rdi + rcx]
     cmp r9b, [rsi]
     je found
