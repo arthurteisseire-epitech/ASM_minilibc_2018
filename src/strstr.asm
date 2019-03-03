@@ -11,18 +11,21 @@ strstr:
     mov r10b, [rsi]
     cmp r10b, 0
     je found
-begin:
+
+loop:
     mov r9b, [rdi + rcx]
     cmp r9b, [rsi]
     je found
     cmp r9b, 0
     je not_found
     inc rcx
-    jmp begin
+    jmp loop
+
 found:
     mov rax, rdi
     add rax, rcx
     ret
+
 not_found:
     mov rax, 0
     ret
