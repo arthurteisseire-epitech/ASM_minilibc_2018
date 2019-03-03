@@ -33,6 +33,9 @@ Test(my_strcasecmp, no_case)
     test_strcasecmp("", "");
     test_strcasecmp("a", "b");
     test_strcasecmp("abc", "abd");
+    test_strcasecmp("a", "");
+    test_strcasecmp("abc", "ab");
+    test_strcasecmp("", "abc");
 }
 
 Test(my_strcasecmp, with_case)

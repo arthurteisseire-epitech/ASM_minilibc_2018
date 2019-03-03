@@ -33,14 +33,14 @@ return:
     cmp r8b, r9b
     jg positive
 
-    mov al, r9b
-    sub al, r8b
+    mov al, [rsi + rcx - 1]
+    sub al, [rdi + rcx - 1]
     xor eax, 0xffffffff
     inc eax
     ret
 positive:
-    mov al, r8b
-    sub al, r9b
+    mov al, [rdi + rcx - 1]
+    sub al, [rsi + rcx - 1]
     ret
 
 to_lower_r8:
