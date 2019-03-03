@@ -16,11 +16,11 @@ begin:
     mov r9b, [rsi + rcx]
     inc rcx
 
-    cmp r8b, 122
-    jle to_lower_r8
+    cmp r8b, 90
+    jle to_upper_r8
 end_r8:
-    cmp r9b, 122
-    jle to_lower_r9
+    cmp r9b, 90
+    jle to_upper_r9
 end_r9:
 
     cmp r8b, 0
@@ -33,28 +33,28 @@ return:
     cmp r8b, r9b
     jg positive
 
-    mov al, [rsi + rcx - 1]
-    sub al, [rdi + rcx - 1]
+    mov al, r9b
+    sub al, r8b
     xor eax, 0xffffffff
     inc eax
     ret
 positive:
-    mov al, [rdi + rcx - 1]
-    sub al, [rsi + rcx - 1]
+    mov al, r8b
+    sub al, r9b
     ret
 
-to_lower_r8:
+to_upper_r8:
     xor dl, dl
     mov dl, r8b
-    sub dl, 32
-    cmp r8b, 97
+    add dl, 32
+    cmp r8b, 65
     cmovge r8d, edx
     jmp end_r8
 
-to_lower_r9:
+to_upper_r9:
     xor dl, dl
     mov dl, r9b
-    sub dl, 32
-    cmp r9b, 97
+    add dl, 32
+    cmp r9b, 65
     cmovge r9d, edx
     jmp end_r9

@@ -41,4 +41,6 @@ Test(my_strcasecmp, no_case)
 Test(my_strcasecmp, with_case)
 {
     test_strcasecmp("A", "a");
+    test_strcasecmp("ABCDEF", "A");
+    test_strcasecmp("A", "ABCDEF");
 }
